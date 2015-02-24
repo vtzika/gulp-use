@@ -3,13 +3,21 @@
 var gulp = require('gulp'),
 	uglify = require('gulp-uglify');
 
-// we create a task which will run every time we are running gulp
-// it uglifies every js file of the specific directory
-// it will save the uglified file in the minjs folder 
-gulp.task('default', function() {
+
+// Scripts Tasks
+// Uglifies
+gulp.task('scripts', function(){
 	gulp.src('application/js/*.js')
 	.pipe(uglify())
-	.pipe(gulp.dest('build/js'))
-}); 
+	.pipe(gulp.dest('build/js'));
+});
 
-gulp.task('')
+// Styles Tasks
+// Uglifies
+gulp.task('styles', function(){
+	console.log('run styles')
+});
+
+
+
+gulp.task('default', ['scripts', 'styles']); 

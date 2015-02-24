@@ -13,11 +13,15 @@ gulp.task('scripts', function(){
 });
 
 // Styles Tasks
-// Uglifies
+// 
 gulp.task('styles', function(){
 	console.log('run styles')
 });
 
+// Watch Tasks
+// Watches js files
+gulp.task('watch', function(){
+	gulp.watch('application/**/*.js', ['scripts']);
+});
 
-
-gulp.task('default', ['scripts', 'styles']); 
+gulp.task('default', ['scripts', 'styles', 'watch']); 

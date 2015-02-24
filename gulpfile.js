@@ -9,5 +9,7 @@ var gulp = require('gulp'),
 gulp.task('default', function() {
 	gulp.src('application/js/*.js')
 	.pipe(uglify())
-	.pipe(gulp.dest('minjs'))
+	.pipe(gulp.dest('build/js'))
 }); 
+
+gulp.task('')

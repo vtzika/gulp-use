@@ -72,8 +72,10 @@ gulp.task('image', function(){
     	progressive: true,
      	interlaced: true
     })))
-    .pipe(gulp.dest('build/images'));
+    .pipe(gulp.dest('build/images'))
+    .pipe(notify({ message: 'Images task complete' }));
 });
+
 
 // Watch Tasks
 // Watches js files

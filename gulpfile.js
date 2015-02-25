@@ -7,7 +7,13 @@ var gulp = require('gulp'),
 	livereload = require('gulp-livereload'),
 	jshint = require('gulp-jshint'),
 	imagemin = require('gulp-imagemin'),
-	cache = require('gulp-cache');
+	cache = require('gulp-cache'),
+	autoprefixer = require('gulp-autoprefixer'),
+	minifycss = require('gulp-minify-css'),
+	rename = require('gulp-rename'),
+	notify = require('gulp-notify');
+
+
 
 
 
@@ -32,9 +38,12 @@ gulp.task('styles', function(){
 	.on('error', function(err) {
 		console.error('Error!', err.message);
 	})
+	.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 	.pipe(gulp.dest('application/css/'))
+    .pipe(minifycss())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(notify({ message: 'Styles task complete' }))
 	.pipe(livereload());
-
 });
 
 // JSHint 
@@ -65,8 +74,6 @@ gulp.task('image', function(){
     })))
     .pipe(gulp.dest('build/images'));
 });
-
-
 
 // Watch Tasks
 // Watches js files

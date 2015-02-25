@@ -221,6 +221,7 @@
      * Event listener for swiping on mobile devices
      */
 
+
     var xDown = null;
     var yDown = null;
 

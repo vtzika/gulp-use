@@ -11,7 +11,8 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifycss = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
-	notify = require('gulp-notify');
+	notify = require('gulp-notify'),
+	del = require('del');
 
 
 
@@ -68,12 +69,15 @@ gulp.task('webserver', function(){
 // Compress
 gulp.task('image', function(){
 	gulp.src(['application/images/**/*'])
-    .pipe(cache(imagemin({
-    	progressive: true,
-     	interlaced: true
-    })))
+    .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
     .pipe(gulp.dest('build/images'))
     .pipe(notify({ message: 'Images task complete' }));
+});
+
+// Clean
+// Clean out the destination folders
+gulp.task('clean', function(cb) {
+    del(['build'], cb)
 });
 
 

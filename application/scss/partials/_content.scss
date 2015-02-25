@@ -1,0 +1,228 @@
+.content {
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 70px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.image {
+	background: url(/images/header/header-image-temp.jpg);
+}
+  .text{
+  min-width:300px;
+  }
+.ww-txt{
+  position:relative;
+  min-width:200px;
+  min-height:200px;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+p .ww {
+  color:#ffffff;
+}
+
+.ww-img{
+  position:relative;
+  display: inline-block;
+  width:100px;
+  height:100px;
+}
+
+.svg-object {
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+
+.bignames-img{
+  position:relative;
+  display: inline-block;
+  width:57%;
+  height: 4em;
+  }
+
+.bignames-img img{
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+
+.wespeak-txt {
+  text-align: left;
+  max-width:45%;
+}
+
+.wespeak-art {
+  text-align: right;
+  margin: 0 0 0 30%;
+  width:65%;
+}
+
+.wespeak-art img {
+  text-align: right;
+  width:100%;
+}
+
+
+.cvbuilding-txt {
+  text-align: left;
+  max-width:45%;
+  margin: 0 0 0 50%;
+}
+
+.cvbuilding-art {
+  position:relative;
+  width:400px;
+  height:385px;
+  display: inline-block;
+  margin: 0 0 0 0;
+}
+
+.testimonials {
+  width:100%;
+  top:0;
+  left:0; 
+}
+
+#employees {
+  float: left;
+  width: 100%;
+
+}
+
+#employees div {
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+#employees h2 {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  background-color: #0080c7;
+  opacity: 0.5;
+  width: 100%;
+}
+
+#employees img {
+  width: 200px;
+  height: 200px;
+}
+
+#employees div:hover p {
+  
+  margin-top: -200px;
+
+  display: block;
+  opacity: 1;
+  background-color: #0080c7;
+}
+
+#employees div:hover img {
+ opacity: 0.3;
+}
+
+#employees p {
+  display: none;
+}
+
+.bootcamp-txt {
+  margin: 0 0 0 0;
+}
+
+.bootcamp-art{
+  position:relative;
+  width:50%;
+  margin:0 0 0 25%
+}
+
+.levelup-txt{
+  width:50%;
+}
+
+.projects-txt{
+  text-align: left;
+  max-width:45%;
+  margin: 0 0 0 0%; 
+}
+
+.projects-art {
+  position:relative;
+  width:400px;
+  height:400px;
+  display: inline-block;
+  margin: 0 0 0 0;
+}
+
+@media all and (max-width:320px) {
+
+  .wespeak-txt {
+    text-align: left;
+    max-width:100%;
+  }
+
+  .wespeak-art {
+    text-align: right;
+    margin: 0 0 0 0%;
+    width:100%;
+  }  
+
+  .cvbuilding-txt {
+    text-align: left;
+    max-width:100%;
+    margin: 0 0 0 0;
+  }
+
+
+  .cvbuilding-art {
+    position:relative;
+    width:80%;
+    display: inline-block;
+    margin: -35% 0 0 0;
+  }
+
+  .levelup-txt{
+    width:100%;
+  } 
+  .levelup-art{
+    position:relative;
+    width:80%;
+    display: inline-block;
+    margin: 0 0 0 0;
+  }
+
+  .projects-txt{
+    text-align: left;
+    max-width:100%;
+    margin: 0 0 0 0%; 
+  }
+
+  .projects-art {
+    position:relative;
+    width:80%;
+    display: inline-block;
+    margin: 0 0 0 0;
+  }
+
+  .bootcamp-art{
+    position:relative;
+    width:100%;
+    margin:0 0 0 0;
+
+  }
+
+}

@@ -1,0 +1,28 @@
+.mask {
+	height: 100vh;
+	width: 100vw;
+    position: absolute;
+    background-color: #0099FF;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#container {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #0080c7;
+	-webkit-transition-property: top, bottom;
+    -webkit-transition-duration: 0.5s;
+     -moz-property: top, bottom;
+     -moz-duration: 0.5s;
+      -ms-property: top, bottom;
+      -ms-duration: 0.5s;
+       -o-property: top, bottom;
+       -o-duration: 0.5s;
+		transition-property: top, bottom;
+		transition-duration: 0.5s;
+}
+

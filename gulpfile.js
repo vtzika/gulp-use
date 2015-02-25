@@ -17,9 +17,7 @@ var gulp = require('gulp'),
 // Clean
 // Clean out the destination folders
 gulp.task('clean', function(cb) {
-	del(['build/js', 'build/css'], cb)
-	.pipe(notify({ message: 'The build directory is clean' }));
-
+	del(['build/js', 'build/css'], cb);
 });
 
 // Scripts Tasks

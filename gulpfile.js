@@ -16,16 +16,16 @@ var gulp = require('gulp'),
 
 // Clean
 // Clean out the destination folders
-gulp.task('clean', function(cb) {
-	del(['build/js', 'build/css'], cb);
+gulp.task('clean', function (cb) {
+	del(['build/js/*', 'application/css/*'], cb);
 });
 
 // Scripts Tasks
 // Uglifies the js files and reloads the webserver
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
 	gulp.src('application/js/*.js')
 		.pipe(uglify())
-		.on('error', function(err) {
+		.on('error', function (err) {
 			console.error('Error!', err.message);
 		})
 		.pipe(gulp.dest('build/js'))
@@ -37,11 +37,11 @@ gulp.task('scripts', function() {
 
 // Styles Tasks
 // It compresses, minify and compile the sass files to css and reloads the webserver
-gulp.task('styles', function() {
+gulp.task('styles', function () {
 	return sass('application/scss/', {
 			style: 'compressed'
 		})
-		.on('error', function(err) {
+		.on('error', function (err) {
 			console.error('Error!', err.message);
 		})
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
@@ -58,7 +58,7 @@ gulp.task('styles', function() {
 
 // Image Task
 // It compresses the images 
-gulp.task('image', function() {
+gulp.task('image', function () {
 	gulp.src(['application/images/**/*'])
 		.pipe(cache(imagemin({
 			optimizationLevel: 5,
@@ -73,7 +73,7 @@ gulp.task('image', function() {
 
 // Connect 
 // It connects to  a server
-gulp.task('webserver', function() {
+gulp.task('webserver', function () {
 	connect.server({
 		root: 'application',
 		livereload: true
@@ -82,7 +82,7 @@ gulp.task('webserver', function() {
 
 // Watch Tasks
 // Watches js, html and js files files
-gulp.task('watch', function() {
+gulp.task('watch', function () {
 	var server = livereload();
 	gulp.watch('application/scss/*', ['styles']);
 	gulp.watch('application/index.html', ['styles', 'scripts']);
@@ -91,7 +91,7 @@ gulp.task('watch', function() {
 
 // JSHint 
 // TODO
-gulp.task('lint', function() {
+gulp.task('lint', function () {
 	return gulp.src('application/js/*.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));

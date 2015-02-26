@@ -1,5 +1,3 @@
-    /* jshint ignore:start */
-
     /**
      * a list of recognised keycodes
      */
@@ -30,10 +28,10 @@
      * iOS Device
      * @type {Boolean}
      */
-    var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+    var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
 
     /**
-     * Last animation (date) 
+     * Last animation (date)
      * @type {Number}
      */
     var lastAnimation = 0;
@@ -54,7 +52,7 @@
      * Initialize
      */
     function init() {
-        window.onkeydown = function(event) {
+        window.onkeydown = function (event) {
             if (event.keyCode === keyCodes.up) {
                 prev();
             } else if (event.keyCode === keyCodes.down) {
@@ -63,18 +61,19 @@
         };
     }
 
+    var hs = "";
     /**
      * Move to section based on section number
-     */   
+     */
     var move;
 
     if (conditionizr.ie8 || conditionizr.ie9) {
-        move = function() {
+        move = function () {
 
-            changeBulletAndNavColor();
+            changeBulletAndNavColor()
             showNavigation();
-            
-            var el = document.getElementById('container');
+
+            var el = document.getElementById("container");
 
             var target = -(currentSectionNumber * window.innerHeight);
 
@@ -85,18 +84,18 @@
             // we want to complete in 0.5s, so divide the distance to cover by 30 because 16ms * 60 is ~ 1000
             var pixelsToIncrementBy = parseInt(distanceToCover / 30);
 
-            var scroll = function() {
+            var scroll = function () {
 
-                if(target > currentContainerOffset) {
+                if (target > currentContainerOffset) {
                     currentContainerOffset += pixelsToIncrementBy;
-                } else if(target < currentContainerOffset) {
+                } else if (target < currentContainerOffset) {
                     currentContainerOffset -= pixelsToIncrementBy;
                 }
-                
-                if ((direction === 'up' && currentContainerOffset >= target) || 
+
+                if ((direction === 'up' && currentContainerOffset >= target) ||
                     (direction === 'down' && currentContainerOffset <= target)) {
-                  currentContainerOffset = target;
-                  clearInterval(id);
+                    currentContainerOffset = target;
+                    clearInterval(id);
                 }
 
                 el.style.top = currentContainerOffset + 'px';
@@ -104,27 +103,27 @@
 
             // We want 60fps, so repeat every 16ms because 1000 / 60 is ~16
             var id = setInterval(scroll, 16);
-         
+
         };
     } else {
-        move = function() {
+        move = function () {
             var maskHeight = document.getElementById('mask').offsetHeight;
             changeBulletAndNavColor();
             showNavigation();
             hideDropDown();
-            if(iOS) {
+            if (iOS) {
                 document.getElementById('container').style.top = '-' + (currentSectionNumber * maskHeight) + 'px';
             } else {
                 document.getElementById('container').style.top = '-' + (currentSectionNumber * window.innerHeight) + 'px';
             }
-            
+
         };
     }
 
     /**
      * Go the next section
      */
-    var next = function() {
+    var next = function () {
         if (currentSectionNumber + 1 === sectionCount) {
             return;
         }
@@ -135,7 +134,7 @@
     /**
      * Go to previous section
      */
-    var prev = function() {
+    var prev = function () {
         if (currentSectionNumber === 0) {
             return;
         }
@@ -147,7 +146,7 @@
      * Go to a specific section
      * @param  {number} section
      */
-    var section = function(section) {
+    var section = function (section) {
         currentSectionNumber = parseInt(section);
         move();
     };
@@ -169,9 +168,9 @@
      * @param  {object} event
      * @return {number}
      */
-    function wheel(event){
+    function wheel(event) {
         var timeNow = new Date().getTime();
-        if(timeNow - lastAnimation < quietPeriod + animationTime) {
+        if (timeNow - lastAnimation < quietPeriod + animationTime) {
             event.preventDefault();
             return;
         }
@@ -194,23 +193,23 @@
     /**
      * On resizing the window recalculate the height of the current slide
      */
-    if(window.attachEvent) {
-        window.attachEvent('onresize', function() {
+    if (window.attachEvent) {
+        window.attachEvent('onresize', function () {
             move();
         });
-    } else if(window.addEventListener) {
-        window.addEventListener('resize', function(){
+    } else if (window.addEventListener) {
+        window.addEventListener('resize', function () {
             move();
         });
     }
-    
+
 
     /**
      * Event listener for the mousescroll
      */
-    if(window.attachEvent) {
-        window.attachEvent ('onmousewheel', wheel);
-    } else if(window.addEventListener) {
+    if (window.attachEvent) {
+        window.attachEvent('onmousewheel', wheel);
+    } else if (window.addEventListener) {
         window.addEventListener('DOMMouseScroll', wheel, false);
     }
 
@@ -225,12 +224,12 @@
     var xDown = null;
     var yDown = null;
 
-    var handleTouchStart = function(evt) {
+    var handleTouchStart = function (evt) {
         xDown = evt.touches[0].clientX;
         yDown = evt.touches[0].clientY;
     };
 
-    var handleTouchMove = function(evt) {
+    var handleTouchMove = function (evt) {
         if (!xDown || !yDown) {
             return;
         }
@@ -250,11 +249,11 @@
         yDown = null;
     };
 
-    if(window.addEventListener) {
+    if (window.addEventListener) {
         window.addEventListener('touchstart', handleTouchStart, false);
         window.addEventListener('touchmove', handleTouchMove, false);
     }
-    
-    init();   
 
-    /* jshint ignore:end */ 
+    init();
+
+    /* jshint ignore:end */

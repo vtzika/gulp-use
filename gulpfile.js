@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
+    jscs = require('gulp-jscs'),
     del = require('del');
 
 // Clean
@@ -23,7 +24,7 @@ gulp.task('clean', function (cb) {
 // Scripts Tasks
 // Uglifies the js files and reloads the webserver
 gulp.task('scripts', function () {
-    gulp.src('application/js/*.js')
+    gulp.src(['application/js/*.js'])
         .pipe(uglify())
         .on('error', function (err) {
             console.error('Error!', err.message);
@@ -36,11 +37,27 @@ gulp.task('scripts', function () {
 });
 
 // JSHint 
-// TODO
+// It will check the javascripts files for syntax errors
 gulp.task('lint', function () {
-    return gulp.src('application/js/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+    gulp.src('application/**/*.js')
+        .pipe(jshint('.jshintrc'))
+        .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jshint.reporter('fail'))
+        .pipe(notify({
+            title: 'JSHint',
+            message: 'JSHint Passed. Let it fly!',
+        }))
+});
+
+// JSCS
+// TODO
+gulp.task('jscs', function () {
+    gulp.src('*.js')
+        .pipe(jscs())
+        .pipe(notify({
+            title: 'JSCS',
+            message: 'JSCS Passed. Let it fly!'
+        }));
 });
 
 // Styles Tasks

@@ -50,10 +50,10 @@ gulp.task('lint', function () {
 });
 
 // JSCS
-// TODO
+// It checks the coding style
 gulp.task('jscs', function () {
-    gulp.src('*.js')
-        .pipe(jscs())
+    gulp.src('application/**/*.js')
+        .pipe(jscs('.jscsrc'))
         .pipe(notify({
             title: 'JSCS',
             message: 'JSCS Passed. Let it fly!'

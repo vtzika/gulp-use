@@ -15,6 +15,7 @@ var notify = require('gulp-notify');
 var jscs = require('gulp-jscs');
 var del = require('del');
 var jsdoc = require('gulp-jsdoc');
+var jasmine = require('gulp-jasmine');
 
 // Clean
 // Clean out the destination folders
@@ -47,7 +48,7 @@ gulp.task('lint', function() {
         .pipe(notify({
             title: 'JSHint',
             message: 'JSHint Passed. Let it fly!'
-        }))
+        }));
 });
 
 // JSCS
@@ -105,6 +106,16 @@ gulp.task('image', function() {
         }));
 });
 
+// Testing
+// It does regression testing
+gulp.task('regression', function() {
+    return gulp.src('spec/**/*.js')
+    .pipe(jasmine())
+    .on('error', function(err) {
+        console.error('Error on Testing!', err.message);
+    });
+});
+
 // Connect
 // It connects to  a server
 gulp.task('webserver', function() {
@@ -112,7 +123,7 @@ gulp.task('webserver', function() {
         root: 'application',
         livereload: true
     });
-})
+});
 
 // Watch Tasks
 // Watches js, html and js files files
@@ -124,4 +135,4 @@ gulp.task('watch', function() {
 });
 
 // Default task
-gulp.task('default', ['clean', 'webserver', 'scripts', 'jscs', 'styles', 'image', 'watch']);
+gulp.task('default', ['clean', 'webserver', 'scripts', 'jscs', 'styles', 'image', 'watch', 'regression']);

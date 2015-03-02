@@ -16,6 +16,10 @@ var jscs = require('gulp-jscs');
 var del = require('del');
 var jsdoc = require('gulp-jsdoc');
 var jasmine = require('gulp-jasmine');
+var git = require('gulp-git');
+var argv = require('yargs').argv;
+
+
 
 // Clean
 // Clean out the destination folders
@@ -106,15 +110,28 @@ gulp.task('image', function() {
         }));
 });
 
+var test_passing = true;
+
 // Testing
 // It does regression testing
 gulp.task('regression', function() {
-    return gulp.src('spec/**/*.js')
+    var regression = gulp.src('spec/**/*.js')
     .pipe(jasmine())
     .on('error', function(err) {
-        console.error('Error on Testing!', err.message);
-    });
+        //console.error('Error on Testing!', err.message);
+        //console.log(regression);
+        test_passing = false;
+    })
 });
+
+// Git Commit Task
+//
+gulp.task('commit', function(){
+    var commit_message = argv.msg;
+    return gulp.src('application/*')
+    .pipe(git.commit('gulp git test commit', {args: '-a -m ' + commit_message}));
+});
+
 
 // Connect
 // It connects to  a server

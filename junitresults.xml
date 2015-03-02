@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="Give it some context" timestamp="2015-02-28T20:14:04" hostname="localhost" time="0.003" errors="0" tests="0" skipped="0" disabled="0" failures="0">
+ </testsuite>
+ <testsuite name="Give it some context.maybe a bit more context here" timestamp="2015-02-28T20:14:04" hostname="localhost" time="0.003" errors="0" tests="1" skipped="0" disabled="0" failures="1">
+  <testcase classname="Give it some context.maybe a bit more context here" name="should run here few assertions" time="0.003">
+   <failure type="toBe" message="Expected true to be false."><![CDATA[Error: Expected true to be false.
+    at stack (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1455:17)
+    at buildExpectationResult (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1425:14)
+    at Spec.Env.expectationResultFactory (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:572:18)
+    at Spec.addExpectationResult (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:321:34)
+    at Expectation.addExpectationResult (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:516:21)
+    at Expectation.toBe (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1379:12)
+    at Object.<anonymous> (/Users/varvara/Projects/competa/gulp-experiment/spec/test.js:9:17)
+    at attemptSync (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1741:24)
+    at QueueRunner.run (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1729:9)
+    at QueueRunner.execute (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1714:10)
+    at Spec.Env.queueRunnerFactory (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:608:35)
+    at Spec.execute (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:346:10)
+    at Object.fn (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:2059:43)
+    at attemptAsync (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1771:24)
+    at QueueRunner.run (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1726:9)
+    at QueueRunner.execute (/Users/varvara/Projects/competa/gulp-experiment/node_modules/gulp-jasmine/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1714:10)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+</testsuites>
